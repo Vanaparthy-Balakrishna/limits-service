@@ -1,32 +1,36 @@
 package com.bala.webservices.limitsservice.controller.dto;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+@Component
+@ConfigurationProperties("limits.service")
 public class LimitConfiguration {
 
-	private int maxLimit;
-	private int minLimit;
+	private int minimum;
+	private int maximum;
 
 	public LimitConfiguration() {
-		
+
 	}
 
-	public LimitConfiguration(int maxLimit, int minLimit) {
-		this.maxLimit = maxLimit;
-		this.minLimit = minLimit;
+	public LimitConfiguration(int minimum, int maximum) {
+		super();
+		this.minimum = minimum;
+		this.maximum = maximum;
 	}
 
-	public void setMaxLimit(int maxLimit) {
-		this.maxLimit = maxLimit;
+	public int getMinimum() {
+		return minimum;
 	}
-
-	public int getMaxLimit() {
-		return maxLimit;
+	public void setMinimum(int minimum) {
+		this.minimum = minimum;
 	}
-
-	public void setMinLimit(int minLimit) {
-		this.minLimit = minLimit;
+	public int getMaximum() {
+		return maximum;
 	}
-
-	public int getMinLimit() {
-		return minLimit;
+	public void setMaximum(int maximum) {
+		this.maximum = maximum;
 	}
+	
 }
